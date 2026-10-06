@@ -1,0 +1,203 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        Check your answers before sending your application
+      </h1>
+
+      <h2 class="govuk-heading-m">Where are you travelling to?</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Destination"
+            },
+            value: {
+              text: data.chooseDestination
+            },
+            actions: {
+              items: [
+                {
+                  href: "/choose-destination",
+                  text: "Change",
+                  visuallyHiddenText: "Destination"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">What is your name?</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "First name"
+            },
+            value: {
+              text: data.travellerFirstName
+            },
+            actions: {
+              items: [
+                {
+                  href: "/traveller-name",
+                  text: "Change",
+                  visuallyHiddenText: "First name"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Last name"
+            },
+            value: {
+              text: data.travellerLastName
+            },
+            actions: {
+              items: [
+                {
+                  href: "/traveller-name",
+                  text: "Change",
+                  visuallyHiddenText: "Last name"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">What is your address?</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Address line 1"
+            },
+            value: {
+              text: data.addressLine1
+            },
+            actions: {
+              items: [
+                {
+                  href: "/traveller-address",
+                  text: "Change",
+                  visuallyHiddenText: "Address line 1"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Address line 2"
+            },
+            value: {
+              text: data.addressLine2
+            },
+            actions: {
+              items: [
+                {
+                  href: "/traveller-address",
+                  text: "Change",
+                  visuallyHiddenText: "Address line 2"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "City or town"
+            },
+            value: {
+              text: data.addressTownOrCity
+            },
+            actions: {
+              items: [
+                {
+                  href: "/traveller-address",
+                  text: "Change",
+                  visuallyHiddenText: "City or town"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "County"
+            },
+            value: {
+              text: data.addressCounty
+            },
+            actions: {
+              items: [
+                {
+                  href: "/traveller-address",
+                  text: "Change",
+                  visuallyHiddenText: "County"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Postcode"
+            },
+            value: {
+              text: data.addressPostcode
+            },
+            actions: {
+              items: [
+                {
+                  href: "/traveller-address",
+                  text: "Change",
+                  visuallyHiddenText: "Postcode"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Now send your application
+      </h2>
+
+      <p>
+        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
+      </p>
+
+      <form action="/confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+  
+{% endblock %}

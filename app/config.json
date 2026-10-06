@@ -1,0 +1,9 @@
+{
+  "serviceName": "Space travel service",
+  "useServiceNavigation": true,
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
+}

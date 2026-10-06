@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set pageName = "What is your name?" %}
+
+{% block pageTitle %}
+  {{ pageName }} – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/traveller-address" method="post">
+
+        <fieldset class="govuk-fieldset">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              {{ pageName }}
+            </h1>
+          </legend>
+
+          <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque luctus mauris non pharetra sagittis. Suspendisse vitae efficitur libero.</p>
+
+          <p class="govuk-body">Praesent eget lectus augue. Nulla scelerisque nisl quam, a blandit magna accumsan vel. Donec accumsan, quam et malesuada faucibus, tellus sem placerat est, nisi nisi sit amet ligula.</p>
+
+          {{ govukInput({
+            label: {
+              text: "First name"
+            },
+            id: "traveller-first-name",
+            name: "travellerFirstName",
+            value: data.travellerFirstName,
+            classes: "govuk-!-width-two-thirds"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            id: "traveller-last-name",
+            name: "travellerLastName",
+            value: data.travellerLastName,
+            classes: "govuk-!-width-two-thirds"
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+        </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
